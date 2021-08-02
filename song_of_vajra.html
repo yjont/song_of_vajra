@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Song Of Vajra Timings</title>
+
+  <style media="screen">
+    html {
+      height: 100vh;
+      min-height: 100vh;
+      }
+
+    body {
+      height: 100vh;
+      min-height: 100vh;
+    }
+
+    li {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      flex-direction: column;
+      height: 90vh;
+      min-height: 90vh;
+    }
+
+    #div {
+      font-size: 10vh;
+      font-family: Verdana;
+      text-align: center;
+    }
+
+    #title {
+      font-size: 6vh;
+      font-family: Verdana;
+      text-align: center;
+    }
+    button {
+      font-size: 4vh!important;/* Put your wanted size for your button here*/
+    }
+
+    </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script type="text/javascript">
+    var songtext;
+    var cc = 0;
+    var total_words = 0;
+    var current_word = 0;
+    var current_phrase = 0;
+    var total_phrases = 0;
+    var beat = 0;
+    var song;
+
+
+    function start(new_beat) {
+      $('#title').hide();
+        $('#ul').show();
+      beat = new_beat;
+      setTimeout(song, 2000);
+    }
+
+    function song() {
+      song = {
+        "0": {
+          "E-e": 2 * beat,
+          "МА-a*": 2 * beat,
+          "KI-i": 2 * beat,
+          "RI-i*": 2 * beat,
+          "KI-i-i-<font color='red'>i</font>*": 4 * beat,
+          "RI-i-i-i*": 4 * beat
+        },
+        "1": {
+          "MA-aS": 2 * beat,
+          "TA-<font color='red'>a</font>*": 2 * beat,
+          "VA-a": 2 * beat,
+          "LI-<font color='red'>i</font>*": 2 * beat,
+          "VA-a-a-a*": 4 * beat,
+          "LI-i-i-i*": 4 * beat
+        },
+        "2": {
+          "SA-MI": 2 * beat,
+          "TA-a*": 2 * beat,
+          "SU-u": 2 * beat,
+          "RU-u*": 2 * beat,
+          "SU-u-u-<font color='red'>u</font>*": 4 * beat,
+          "RU-u-u-u": 4 * beat
+        },
+        "3": {
+          "KU-TA": 2 * beat,
+          "LI-<font color='red'>i</font>*": 2 * beat,
+          "MA-a": 2 * beat,
+          "SU-<font color='red'>u</font>*": 2 * beat,
+          "MA-a-a-a*": 4 * beat,
+          "SU-u-u-u*": 4 * beat
+        },
+        "4": {
+          "E-e": 2 * beat,
+          "KA-a*": 2 * beat,
+          "RA-a-a-a*": 4 * beat
+        },
+        "5": {
+          "SU-u": 2 * beat,
+          "LI-i*": 2 * beat,
+          "BHA-a": 2 * beat,
+          "TA-<font color='red'>a</font>*": 2 * beat,
+          "YE-e-e-e*": 4 * beat
+        },
+        "6": {
+          "CI-i": 2 * beat,
+          "KI-i*": 2 * beat,
+          "RA-a-a-a*": 4 * beat
+        },
+        "7": {
+          "BHU-u": 2 * beat,
+          "LI-i*": 2 * beat,
+          "BHA-a": 2 * beat,
+          "TA-<font color='red'>a</font>*": 2 * beat,
+          "YE-e-e-e*": 4 * beat
+        },
+        "8": {
+          "SA-a": 2 * beat,
+          "MU-<font color='red'>u</font>N*": 2 * beat,
+          "TA-a": 2 * beat,
+          "CA": 1 * beat,
+          "RY<font color='red'>A</font>*": 1 * beat
+        },
+        "9": {
+          "SU-u": 2 * beat,
+          "GHA-<font color='red'>a</font>*": 2 * beat,
+          "YA-a-a-a*": 4 * beat
+        },
+        "10": {
+          "BHE-e": 2 * beat,
+          "TA-a*": 2 * beat,
+          "SA-a": 2 * beat,
+          "NA": 1 * beat,
+          "BHYA*": 1 * beat
+        },
+        "11": {
+          "KU-<font color='red'>u</font>": 2 * beat,
+          "LA-a*": 2 * beat,
+          "YE-e-e-e*": 4 * beat
+        },
+        "12": {
+          "SA-a": 2 * beat,
+          "KA-<font color='red'>a</font>*": 2 * beat,
+          "RI-i-i-i*": 4 * beat
+        },
+        "13": {
+          "DHU-u": 2 * beat,
+          "KA-a*": 2 * beat,
+          "NA-a-a-a*": 4 * beat
+        },
+        "14": {
+          "MA-a": 2 * beat,
+          "TA-a*": 2 * beat,
+          "RI-i-i-i*": 4 * beat
+        },
+        "15": {
+          "VA-<font color='red'>a</font>I": 2 * beat,
+          "TA-<font color='red'>a(a)</font>*": 2 * beat,
+          "NA-a-a-a*": 4 * beat
+        },
+        "16": {
+          "PA-a": 2 * beat,
+          "RA-a*": 2 * beat,
+          "LI-i-i-i*": 4 * beat
+        },
+        "17": {
+          "HI-i": 2 * beat,
+          "SA-<font color='red'>a</font>*": 2 * beat,
+          "NA-a-a-a*": 4 * beat
+        },
+        "18": {
+          "MA-a": 2 * beat,
+          "KA-R*": 2 * beat,
+          "TA-a-a-a*": 4 * beat
+        },
+        "19": {
+          "KHE-e": 2 * beat,
+          "LA-<font color='red'>a(a)</font>*": 2 * beat,
+          "NA-a-a-M*": 4 * beat
+        },
+        "20": {
+          "SA-M": 2 * beat,
+          "BHA-a*": 2 * beat,
+          "RA-a": 2 * beat,
+          "THA-a*": 2 * beat
+        },
+        "21": {
+          "ME-e": 2 * beat,
+          "KHA-a*": 2 * beat,
+          "CA-N": 2 * beat,
+          "TA-<font color='red'>a</font>*": 2 * beat,
+          "PA-a-a-a*": 4 * beat
+        },
+        "22": {
+          "SU-R": 2 * beat,
+          "YA-a*": 2 * beat,
+          "BHA-a": 2 * beat,
+          "TA-a*": 2 * beat
+        },
+        "23": {
+          "RAI-i": 2 * beat,
+          "PA-a*": 2 * beat,
+          "SHA-a": 2 * beat,
+          "NA-a*": 2 * beat,
+          "PA-a-a-a*": 4 * beat
+        },
+
+        "24": {
+          "RA-a": 2 * beat,
+          "NA-a*": 2 * beat,
+          "BI-i": 2 * beat,
+          "DHI-i*": 2 * beat
+        },
+        "25": {
+          "SA-a": 2 * beat,
+          "GHU-u*": 2 * beat,
+          "RA-a": 2 * beat,
+          "LA-<font color='red'>a</font>*": 2 * beat,
+          "PA-a-a-a*": 4 * beat
+        },
+        "26": {
+          "MA-S": 2 * beat,
+          "MI-N*": 2 * beat,
+          "SA-a": 2 * beat,
+          "GHU-u*": 2 * beat,
+
+        },
+        "27": {
+          "LI-i-i-<font color='red'>i</font>*": 4 * beat,
+          "TA-a": 2 * beat,
+          "YA-a*": 2 * beat,
+          "PA-a-a-a*": 4 * beat
+        },
+        "28": {
+          "GHU-u": 2 * beat,
+          "RA-a*": 2 * beat,
+          "GHU-u-u-u* ": 4 * beat,
+          "RA-a-a-a*": 4 * beat
+        },
+        "29": {
+          "SA-a": 2 * beat,
+          "GHA-a*": 2 * beat,
+          "KHA-R": 2 * beat,
+          "NA-a*": 2 * beat,
+          "LA-a-a-M*": 4 * beat
+        },
+        "30": {
+          "NA-a": 2 * beat,
+          "RA-a*": 2 * beat,
+          "NA-a-a-a*": 4 * beat,
+          "RA-a-a-a*": 4 * beat
+        },
+        "31": {
+          "I-i": 2 * beat,
+          "THA-a*": 2 * beat,
+          "PA-a": 2 * beat,
+          "TA-<font color='red'>a</font>*": 2 * beat,
+          "LA-a-a-M*": 4 * beat
+        },
+        "32": {
+          "SI-R": 2 * beat,
+          "NA-a*": 2 * beat,
+          "SI-i-i-R*": 4 * beat,
+          "NA-a-a-a*": 4 * beat
+        },
+        "33": {
+          "BHE-e": 2 * beat,
+          "SA-a*": 2 * beat,
+          "RA-S": 2 * beat,
+          "PA-a*": 2 * beat,
+          "LA-a-a-M*": 4 * beat
+        },
+        "34": {
+          "BHUN": 2 * beat,
+          "DHA-a*": 2 * beat,
+          "BHU-u-uN*": 4 * beat,
+          "DHA-a-a-a*": 4 * beat
+        },
+        "35": {
+          "CHI-i": 2 * beat,
+          "SHA-a*": 2 * beat,
+          "SA-a": 2 * beat,
+          "KE-<font color='red'>e</font>*": 2 * beat,
+          "LA-a-a-M*": 4 * beat
+        },
+        "36": {
+          "SA-a*": 2 * beat,
+          "SA-a-a-a-a-a*": 6 * beat
+        },
+        "37": {
+          "RI-i*": 2 * beat,
+          "RI-i-i-i-i-i*": 6 * beat
+        },
+        "38": {
+          "LI-<font color='red'>i</font>*": 2 * beat,
+          "LI-i-i-i-i-i*": 6 * beat
+        },
+        "39": {
+          "I-i*": 2 * beat,
+          "I-i-i-i-i-i*": 6 * beat
+        },
+        "40": {
+          "MI-i-<font color='red'>i</font>-i*": 4 * beat,
+          "MI-i-i-i-i-i-i-i*": 8 * beat
+        },
+        "41": {
+          "RA-a-<font color='red'>a</font>-a-a-a-a-a*": 8 * beat
+        },
+        "42": {
+          "RA-a-<font color='red'>a</font>-a*": 4 * beat
+        },
+        "43": {
+          "RA-a-<font color='red'>a</font>-a-a-a-a-a-a-a-a-a": 12 * beat
+        },
+        "44": {
+          " ": 1 * beat
+        }
+      };
+      $.each(song, function(p_i, p_el) {
+        total_phrases++;
+      });
+      $(document).ready(function() {
+        nextPhrase();
+      });
+    }
+
+    function buildPhrase(p_phrase_num) {
+      var text = "";
+      current_word = 0;
+      total_words = 0;
+
+      $.each(song[p_phrase_num], function(p_i, p_el) {
+        text += "<span class='text-nowrap' id='p" + current_word + "' _duration='" + p_el + "'style='background-color: white'>" + p_i + "</span> ";
+        current_word++;
+        total_words++;
+      });
+
+      $('#div').html(text);
+    }
+
+    function nextPhrase() {
+      if (current_phrase <= total_phrases) {
+        buildPhrase(current_phrase);
+        current_phrase++;
+        window.setTimeout(animateWord, 100);
+      }
+    }
+
+    function animateWord() {
+      var oldcc = cc;
+      $('#p' + (cc - 1)).css("background-color", "white");
+      $('#p' + cc).css("background-color", "lightgreen");
+      var duration = $('#p' + cc).attr("_duration");
+      cc++;
+      if (cc > total_words) {
+        cc = 0;
+        nextPhrase();
+        return;
+      }
+      window.setTimeout(animateWord, duration);
+
+    }
+  </script>
+</head>
+
+<body>
+
+  <ul>
+    <li>
+      <div id="div" ></div>
+      <div id="title">
+        CHÖGYAL NAMKHAI NORBU<br>
+        THE SONG OF THE VAJRA <br>
+        <button type="button" class="btn btn-warning btn-lg button" onclick="start(500)">Fast</button>
+        <button type="button" class="btn btn-danger btn-lg button" onclick="start(1000)">Normal</button>
+        <button type="button" class="btn btn-success btn-lg button" onclick="start(2000)">Slow</button>
+        <br>
+        <font size="3">
+          * = breath change,
+          <font color='red'>red = note change</font>
+          <br>
+          edited by Adriano Clemente according to the Vajra Dance of the Song of the Vajra
+        </font>
+      </div>
+    </li>
+  </ul>
+</body>
+
+</html>
